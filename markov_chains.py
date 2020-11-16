@@ -256,18 +256,3 @@ class SentenceGenerator(MarkovChain):
         quote.remove("$tart")
         quote.remove("$top")
         return ' '.join(quote)
-
-if __name__=="__main__":
-    weather2 = np.array([[.7, .6], [.3, .4]])
-    weather4 = np.array([[.5, .3, .1, 0], [.3, .3, .3, .3], [.2, .3, .4, .5], [0, .1, .2, .2]])
-    states = ["hot", "mild", "cold", "freezing"]
-    mark = MarkovChain(weather2, states)
-    mark.steady_state()
-    
-    yoda = SentenceGenerator("trump.txt")
-    for i in range (0,40):
-        tweet = yoda.babble()
-        if len(tweet) < 100:
-            print(tweet)
-            print()
-    
